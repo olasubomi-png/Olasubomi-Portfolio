@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Olasubomi — Full-Stack Developer, WhatsApp MD Bot Developer, AI Automation Builder & Cloud Developer. Explore my projects, skills and contact me." />
-  <meta name="keywords" content="Olasubomi, full-stack developer, WhatsApp bot, Node.js, JavaScript, AWS, AI automation, MongoDB, Express" />
+  <meta name="description" content="Olasubomi — Full-Stack Developer, WhatsApp MD Bot Developer, AI Automation Builder & Cloud Developer. Explore my projects, services and contact me." />
+  <meta name="keywords" content="Olasubomi, full-stack developer, WhatsApp bot, Node.js, JavaScript, AWS, AI automation, MongoDB, Express, Baileys" />
   <meta name="author" content="Olasubomi" />
   <meta property="og:title" content="Olasubomi | Full-Stack Developer Portfolio" />
   <meta property="og:description" content="Full-Stack Developer, WhatsApp MD Bot Developer & AI Automation Builder." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/myphoto.png" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#050510" />
   <title>Olasubomi | Developer Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,7 +24,7 @@
   <div id="loader" class="loader">
     <div class="loader-content">
       <div class="logo-animation">
-        <svg class="logo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <svg class="logo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
             <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" style="stop-color:#00f5ff"/>
@@ -40,32 +43,35 @@
   </div>
 
   <!-- ============ PARTICLE BACKGROUND ============ -->
-  <canvas id="particleCanvas"></canvas>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+  <!-- ============ TOAST NOTIFICATION ============ -->
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
 
   <!-- ============ NAVBAR ============ -->
-  <nav id="navbar" class="navbar">
+  <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
-      <a href="#home" class="nav-logo">
-        <svg viewBox="0 0 40 40" width="36" height="36">
+      <a href="#home" class="nav-logo" aria-label="Olasubomi — Home">
+        <svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
           <polygon points="20,2 37,11 37,29 20,38 3,29 3,11" fill="none" stroke="var(--accent)" stroke-width="2"/>
           <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" fill="var(--accent)" font-size="15" font-family="Orbitron" font-weight="900">O</text>
         </svg>
         <span>OLASUBOMI</span>
       </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#home"     class="nav-link active">Home</a></li>
+        <li><a href="#about"    class="nav-link">About</a></li>
+        <li><a href="#skills"   class="nav-link">Skills</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#timeline" class="nav-link">Journey</a></li>
-        <li><a href="#gallery" class="nav-link">Gallery</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#contact"  class="nav-link">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <button id="themeToggle" class="theme-btn" aria-label="Toggle theme" title="Toggle Light/Dark Mode">
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle light/dark mode" title="Toggle Light/Dark Mode">
           <span class="theme-icon">🌙</span>
         </button>
-        <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -73,35 +79,56 @@
   </nav>
 
   <!-- ============ HERO ============ -->
-  <section id="home" class="hero">
+  <section id="home" class="hero" aria-label="Introduction">
     <div class="hero-content">
       <p class="hero-greeting">👋 Hello, I'm</p>
       <h1 class="hero-name">OLASUBOMI</h1>
-      <div class="hero-typing-wrap">
+      <div class="hero-typing-wrap" aria-live="polite">
         <span class="hero-typing-prefix">I'm a </span>
         <span id="typingText" class="hero-typing"></span>
-        <span class="cursor-blink">|</span>
+        <span class="cursor-blink" aria-hidden="true">|</span>
       </div>
       <p class="hero-desc">
         Building intelligent bots, automating the future, and deploying scalable cloud systems
         — one line of code at a time.
       </p>
       <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View My Work</a>
-        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+        <a href="#projects" class="btn btn-primary">🚀 View My Work</a>
+        <a href="assets/cv/Olasubomi-CV.pdf" download class="btn btn-ghost">📄 Download CV</a>
+        <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">🐙 GitHub</a>
+        <a href="https://wa.me/2349061198658" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">💬 WhatsApp</a>
+      </div>
+      <div class="hero-social">
+        <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub profile">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="#" class="social-link social-disabled" aria-label="LinkedIn — coming soon" title="LinkedIn — Coming Soon">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn <span class="coming-soon-badge">Soon</span>
+        </a>
+        <a href="mailto:vegasola8@gmail.com" class="social-link" aria-label="Send email">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+        <a href="https://wa.me/2349061198658" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
       </div>
       <div class="hero-badges">
         <span class="badge">⚡ Node.js</span>
         <span class="badge">🤖 AI</span>
         <span class="badge">☁️ AWS</span>
         <span class="badge">💬 WhatsApp Bots</span>
+        <span class="badge">🔥 Express.js</span>
       </div>
     </div>
-    <div class="hero-visual">
+    <div class="hero-visual" aria-hidden="true">
       <div class="hero-avatar-ring">
         <div class="hero-avatar">
-          <img src="images/profile.jpg" alt="Olasubomi" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="avatar-fallback">O</div>
+          <img src="images/myphoto.png" alt="Olasubomi — Full-Stack Developer" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="avatar-fallback" aria-hidden="true">O</div>
         </div>
         <div class="ring ring-1"></div>
         <div class="ring ring-2"></div>
@@ -111,14 +138,14 @@
         <div class="orbit-dot dot-3"></div>
       </div>
     </div>
-    <div class="scroll-indicator">
+    <div class="scroll-indicator" aria-hidden="true">
       <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
       <span>Scroll Down</span>
     </div>
   </section>
 
   <!-- ============ STATS ============ -->
-  <section id="stats" class="stats-section">
+  <section id="stats" class="stats-section" aria-label="Statistics">
     <div class="container">
       <div class="stats-grid">
         <div class="stat-card" data-target="400" data-suffix="+">
@@ -170,6 +197,7 @@
             <span class="tag"># Bot Developer</span>
             <span class="tag"># Cloud Builder</span>
             <span class="tag"># AI Enthusiast</span>
+            <span class="tag"># Open Source</span>
           </div>
         </div>
         <div class="about-cards">
@@ -199,6 +227,7 @@
       <div class="section-header">
         <span class="section-tag">02 — Skills</span>
         <h2 class="section-title">Technical Arsenal</h2>
+        <p class="section-sub">Technologies I work with daily to build real-world systems</p>
       </div>
       <div class="skills-grid">
         <div class="skill-item">
@@ -266,8 +295,6 @@
           <div class="skill-bar"><div class="skill-fill" data-width="83"></div></div>
         </div>
       </div>
-
-      <!-- Tech Pills -->
       <div class="tech-pills">
         <span class="tech-pill">Express.js</span>
         <span class="tech-pill">Baileys</span>
@@ -281,6 +308,112 @@
         <span class="tech-pill">Async/Await</span>
         <span class="tech-pill">Webhooks</span>
         <span class="tech-pill">FFmpeg</span>
+        <span class="tech-pill">Helmet.js</span>
+        <span class="tech-pill">dotenv</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services" class="services-section section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">03 — Services</span>
+        <h2 class="section-title">What I Offer</h2>
+        <p class="section-sub">Professional services tailored to bring your ideas to life</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card glass-card">
+          <div class="service-icon-wrap">
+            <span class="service-icon">💬</span>
+          </div>
+          <h3 class="service-title">WhatsApp Bot Development</h3>
+          <p class="service-desc">Custom multi-device WhatsApp bots with 400+ commands — group management, AI tools, media downloaders, auto-replies, and games.</p>
+          <ul class="service-features">
+            <li>✓ 400+ commands</li>
+            <li>✓ Multi-device support</li>
+            <li>✓ AI integration</li>
+            <li>✓ Group management</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-sm service-btn">Get Started →</a>
+        </div>
+
+        <div class="service-card glass-card">
+          <div class="service-icon-wrap">
+            <span class="service-icon">🤖</span>
+          </div>
+          <h3 class="service-title">AI Automation & Integration</h3>
+          <p class="service-desc">Integrate OpenAI, Gemini, and other AI APIs into bots and web apps. Build intelligent chatbots, content generators, and automated workflows.</p>
+          <ul class="service-features">
+            <li>✓ OpenAI / Gemini API</li>
+            <li>✓ Chatbot design</li>
+            <li>✓ Workflow automation</li>
+            <li>✓ API orchestration</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-sm service-btn">Get Started →</a>
+        </div>
+
+        <div class="service-card glass-card">
+          <div class="service-icon-wrap">
+            <span class="service-icon">⚡</span>
+          </div>
+          <h3 class="service-title">Backend API Development</h3>
+          <p class="service-desc">Scalable REST APIs built with Node.js and Express. Clean architecture, JWT auth, rate limiting, and thorough documentation.</p>
+          <ul class="service-features">
+            <li>✓ RESTful design</li>
+            <li>✓ JWT authentication</li>
+            <li>✓ MongoDB integration</li>
+            <li>✓ API documentation</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-sm service-btn">Get Started →</a>
+        </div>
+
+        <div class="service-card glass-card">
+          <div class="service-icon-wrap">
+            <span class="service-icon">☁️</span>
+          </div>
+          <h3 class="service-title">Cloud Deployment (AWS)</h3>
+          <p class="service-desc">Full AWS EC2 setup — Linux configuration, Nginx reverse proxy, SSL/HTTPS, PM2 process management, and 24/7 monitoring.</p>
+          <ul class="service-features">
+            <li>✓ AWS EC2 setup</li>
+            <li>✓ Nginx + SSL/HTTPS</li>
+            <li>✓ PM2 management</li>
+            <li>✓ 24/7 uptime</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-sm service-btn">Get Started →</a>
+        </div>
+
+        <div class="service-card glass-card">
+          <div class="service-icon-wrap">
+            <span class="service-icon">📊</span>
+          </div>
+          <h3 class="service-title">Bot Deployment Dashboard</h3>
+          <p class="service-desc">Custom web dashboard to manage multiple WhatsApp bot instances — track status, restart bots, view logs, and manage sessions.</p>
+          <ul class="service-features">
+            <li>✓ Multi-bot management</li>
+            <li>✓ Real-time monitoring</li>
+            <li>✓ User auth system</li>
+            <li>✓ Log viewer</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-sm service-btn">Get Started →</a>
+        </div>
+
+        <div class="service-card glass-card">
+          <div class="service-icon-wrap">
+            <span class="service-icon">🎓</span>
+          </div>
+          <h3 class="service-title">Consultation & Mentorship</h3>
+          <p class="service-desc">One-on-one sessions covering Node.js, bot development, cloud architecture, or code reviews. Level up your skills fast.</p>
+          <ul class="service-features">
+            <li>✓ Code review</li>
+            <li>✓ Architecture guidance</li>
+            <li>✓ Bot tutoring</li>
+            <li>✓ Cloud setup guide</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-sm service-btn">Book Session →</a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -289,10 +422,11 @@
   <section id="projects" class="projects-section section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">03 — Projects</span>
+        <span class="section-tag">04 — Projects</span>
         <h2 class="section-title">What I've Built</h2>
+        <p class="section-sub">Real systems deployed and used by real people</p>
       </div>
-      <div class="projects-grid">
+      <div class="projects-grid projects-2x2">
 
         <div class="project-card glass-card featured">
           <div class="project-badge">⭐ Featured</div>
@@ -313,8 +447,8 @@
             <span>Node.js</span><span>Baileys</span><span>MongoDB</span><span>AWS</span><span>PM2</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener" class="btn btn-sm">GitHub ↗</a>
-            <a href="https://wa.me/2349061198658" target="_blank" rel="noopener" class="btn btn-sm btn-ghost">Demo ↗</a>
+            <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener noreferrer" class="btn btn-sm">GitHub ↗</a>
+            <a href="https://wa.me/2349061198658" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">Live Demo ↗</a>
           </div>
         </div>
 
@@ -335,7 +469,7 @@
             <span>Express.js</span><span>MongoDB</span><span>Nginx</span><span>AWS EC2</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener" class="btn btn-sm">GitHub ↗</a>
+            <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener noreferrer" class="btn btn-sm">GitHub ↗</a>
           </div>
         </div>
 
@@ -344,7 +478,7 @@
           <div class="project-header">
             <div class="project-icon">🧠</div>
             <div class="project-meta">
-              <h3 class="project-title">AI Automation Systems</h3>
+              <h3 class="project-title">AI Automation Platform</h3>
               <span class="project-type">AI Tools</span>
             </div>
           </div>
@@ -356,7 +490,86 @@
             <span>OpenAI</span><span>Node.js</span><span>APIs</span><span>Webhooks</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener" class="btn btn-sm">GitHub ↗</a>
+            <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener noreferrer" class="btn btn-sm">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="project-glow"></div>
+          <div class="project-header">
+            <div class="project-icon">🌐</div>
+            <div class="project-meta">
+              <h3 class="project-title">Developer Portfolio</h3>
+              <span class="project-type">Full-Stack Portfolio</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            This very site — a production-ready portfolio with a Node.js/Express REST API backend,
+            Helmet security headers, rate limiting, CORS, and a glassmorphism frontend with particle
+            animations, contact form, and dark/light mode.
+          </p>
+          <div class="project-stack">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Node.js</span><span>Express</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener noreferrer" class="btn btn-sm">GitHub ↗</a>
+            <a href="#home" class="btn btn-sm btn-ghost">Live ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section id="testimonials" class="testimonials-section section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">05 — Testimonials</span>
+        <h2 class="section-title">Client Feedback</h2>
+        <p class="section-sub">What people say about working with me</p>
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card glass-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote class="testimonial-text">
+            "Olasubomi built our WhatsApp bot in record time. The features were exactly what we needed — 400+ commands with zero downtime on AWS. Highly recommend!"
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">A</div>
+            <div class="author-info">
+              <strong>Alex M.</strong>
+              <span>Business Owner</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card glass-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote class="testimonial-text">
+            "The AI automation workflows he set up for us saved 10+ hours a week. Clean code, great communication, and delivered ahead of schedule."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">S</div>
+            <div class="author-info">
+              <strong>Sarah K.</strong>
+              <span>Startup Founder</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card glass-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote class="testimonial-text">
+            "Exceptional Node.js developer. Set up our entire AWS infrastructure from scratch — Nginx, PM2, SSL, the works. Our bot has been running 24/7 for months."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">D</div>
+            <div class="author-info">
+              <strong>David R.</strong>
+              <span>Tech Lead</span>
+            </div>
           </div>
         </div>
 
@@ -368,8 +581,9 @@
   <section id="timeline" class="timeline-section section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">04 — Journey</span>
+        <span class="section-tag">06 — Journey</span>
         <h2 class="section-title">My Developer Timeline</h2>
+        <p class="section-sub">From curious beginner to production-ready developer</p>
       </div>
       <div class="timeline">
         <div class="timeline-item left">
@@ -409,9 +623,77 @@
           <div class="timeline-card glass-card active-card">
             <span class="timeline-year">Now</span>
             <h3>Building the Future 🚀</h3>
-            <p>Exploring new frontiers: advanced AI automation, scalable cloud architectures, and next-generation developer tools.</p>
+            <p>Exploring new frontiers: advanced AI automation, scalable cloud architectures, REST APIs, and next-generation developer tools.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS ============ -->
+  <section id="certifications" class="certifications-section section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">07 — Certifications</span>
+        <h2 class="section-title">Credentials</h2>
+        <p class="section-sub">Continuous learning and professional development</p>
+      </div>
+      <div class="certs-grid">
+
+        <div class="cert-card glass-card">
+          <div class="cert-icon">☁️</div>
+          <div class="cert-body">
+            <h3 class="cert-title">AWS Cloud Practitioner</h3>
+            <span class="cert-issuer">Amazon Web Services</span>
+            <span class="cert-status in-progress">In Progress</span>
+          </div>
+        </div>
+
+        <div class="cert-card glass-card">
+          <div class="cert-icon">🟢</div>
+          <div class="cert-body">
+            <h3 class="cert-title">Node.js Development</h3>
+            <span class="cert-issuer">Self-Taught / Projects</span>
+            <span class="cert-status completed">Completed</span>
+          </div>
+        </div>
+
+        <div class="cert-card glass-card">
+          <div class="cert-icon">🍃</div>
+          <div class="cert-body">
+            <h3 class="cert-title">MongoDB Basics</h3>
+            <span class="cert-issuer">MongoDB University</span>
+            <span class="cert-status completed">Completed</span>
+          </div>
+        </div>
+
+        <div class="cert-card glass-card">
+          <div class="cert-icon">🐧</div>
+          <div class="cert-body">
+            <h3 class="cert-title">Linux Fundamentals</h3>
+            <span class="cert-issuer">Self-Taught / AWS EC2</span>
+            <span class="cert-status completed">Completed</span>
+          </div>
+        </div>
+
+        <div class="cert-card glass-card">
+          <div class="cert-icon">🧠</div>
+          <div class="cert-body">
+            <h3 class="cert-title">AI & Prompt Engineering</h3>
+            <span class="cert-issuer">OpenAI / Gemini API</span>
+            <span class="cert-status completed">Completed</span>
+          </div>
+        </div>
+
+        <div class="cert-card glass-card">
+          <div class="cert-icon">🔒</div>
+          <div class="cert-body">
+            <h3 class="cert-title">Web Security Essentials</h3>
+            <span class="cert-issuer">OWASP / Helmet.js</span>
+            <span class="cert-status in-progress">In Progress</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -420,7 +702,7 @@
   <section id="gallery" class="gallery-section section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">05 — Gallery</span>
+        <span class="section-tag">08 — Gallery</span>
         <h2 class="section-title">Screenshots</h2>
       </div>
       <div class="gallery-grid">
@@ -430,7 +712,7 @@
             <p>Bot Screenshot</p>
             <span class="gallery-hint">Replace with: images/bot-screenshot.jpg</span>
           </div>
-          <img src="images/bot-screenshot.jpg" alt="WhatsApp Bot Screenshot" class="gallery-img" onerror="this.style.display='none'" />
+          <img src="images/bot-screenshot.jpg" alt="WhatsApp Bot Screenshot" class="gallery-img" loading="lazy" onerror="this.style.display='none'" />
           <div class="gallery-overlay"><span>OLASUBOMI-MD Bot</span></div>
         </div>
         <div class="gallery-item glass-card">
@@ -439,7 +721,7 @@
             <p>AWS Server</p>
             <span class="gallery-hint">Replace with: images/aws-server.jpg</span>
           </div>
-          <img src="images/aws-server.jpg" alt="AWS Server Screenshot" class="gallery-img" onerror="this.style.display='none'" />
+          <img src="images/aws-server.jpg" alt="AWS Server Screenshot" class="gallery-img" loading="lazy" onerror="this.style.display='none'" />
           <div class="gallery-overlay"><span>AWS EC2 Dashboard</span></div>
         </div>
         <div class="gallery-item glass-card">
@@ -448,9 +730,130 @@
             <p>Coding Setup</p>
             <span class="gallery-hint">Replace with: images/setup.jpg</span>
           </div>
-          <img src="images/setup.jpg" alt="Coding Setup" class="gallery-img" onerror="this.style.display='none'" />
+          <img src="images/setup.jpg" alt="Coding Setup" class="gallery-img" loading="lazy" onerror="this.style.display='none'" />
           <div class="gallery-overlay"><span>My Dev Setup</span></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BLOG (PLACEHOLDER) ============ -->
+  <section id="blog" class="blog-section section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">09 — Blog</span>
+        <h2 class="section-title">Latest Articles</h2>
+        <p class="section-sub">Insights on bots, cloud infrastructure, and AI development</p>
+      </div>
+      <div class="blog-grid">
+
+        <article class="blog-card glass-card">
+          <div class="blog-tag-wrap"><span class="blog-tag">WhatsApp Bots</span></div>
+          <h3 class="blog-title">Building a 400+ Command WhatsApp Bot with Baileys</h3>
+          <p class="blog-excerpt">A deep dive into architecting a scalable, feature-rich WhatsApp multi-device bot from scratch using Node.js and the Baileys framework.</p>
+          <div class="blog-meta">
+            <span class="blog-date">Coming Soon</span>
+            <span class="blog-read">5 min read</span>
+          </div>
+          <a href="#" class="blog-link" aria-disabled="true">Read Article →</a>
+        </article>
+
+        <article class="blog-card glass-card">
+          <div class="blog-tag-wrap"><span class="blog-tag">AWS</span></div>
+          <h3 class="blog-title">Deploying Node.js on AWS EC2 with Nginx & PM2</h3>
+          <p class="blog-excerpt">Step-by-step guide to setting up a production Linux server, configuring Nginx as a reverse proxy, and managing Node.js with PM2.</p>
+          <div class="blog-meta">
+            <span class="blog-date">Coming Soon</span>
+            <span class="blog-read">8 min read</span>
+          </div>
+          <a href="#" class="blog-link" aria-disabled="true">Read Article →</a>
+        </article>
+
+        <article class="blog-card glass-card">
+          <div class="blog-tag-wrap"><span class="blog-tag">AI</span></div>
+          <h3 class="blog-title">Integrating OpenAI & Gemini APIs into Real-World Apps</h3>
+          <p class="blog-excerpt">Practical patterns for wiring AI APIs into production applications — rate limiting, caching, prompt engineering, and cost control.</p>
+          <div class="blog-meta">
+            <span class="blog-date">Coming Soon</span>
+            <span class="blog-read">6 min read</span>
+          </div>
+          <a href="#" class="blog-link" aria-disabled="true">Read Article →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" class="faq-section section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">10 — FAQ</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-sub">Quick answers to common questions</p>
+      </div>
+      <div class="faq-list" id="faqList">
+
+        <div class="faq-item glass-card">
+          <button class="faq-question" aria-expanded="false">
+            <span>What services do you offer?</span>
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>I specialize in WhatsApp bot development (400+ commands), AI automation & API integration, Node.js/Express backend APIs, AWS EC2 cloud deployment, and custom bot management dashboards. I also offer one-on-one consultation and mentorship sessions.</p>
+          </div>
+        </div>
+
+        <div class="faq-item glass-card">
+          <button class="faq-question" aria-expanded="false">
+            <span>How long does a WhatsApp bot project take?</span>
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>It depends on the complexity. A basic bot with 10–30 commands typically takes 3–5 days. A full-featured bot with 100+ commands, AI integration, and cloud deployment can take 2–4 weeks. I always provide a timeline estimate upfront.</p>
+          </div>
+        </div>
+
+        <div class="faq-item glass-card">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do you provide ongoing maintenance and support?</span>
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! I offer post-delivery support and can handle bug fixes, updates, and new feature additions. Long-term maintenance packages are available for clients who need continuous bot management or server monitoring.</p>
+          </div>
+        </div>
+
+        <div class="faq-item glass-card">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can you guarantee 24/7 bot uptime?</span>
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>When deployed on AWS EC2 with PM2 and proper Nginx configuration, bots are set to auto-restart on crash and survive server reboots. My own OLASUBOMI-MD Bot has been running 24/7 for over a year with this setup. Uptime depends on your server tier and infrastructure.</p>
+          </div>
+        </div>
+
+        <div class="faq-item glass-card">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do you work with international clients?</span>
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. I work 100% remotely and collaborate with clients worldwide via WhatsApp, email, or video call. Payment is accepted via international transfer methods. Time zones have never been a barrier.</p>
+          </div>
+        </div>
+
+        <div class="faq-item glass-card">
+          <button class="faq-question" aria-expanded="false">
+            <span>What is your primary tech stack?</span>
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>My core stack is <strong>Node.js + Express.js</strong> for the backend, <strong>Baileys</strong> for WhatsApp bots, <strong>MongoDB</strong> for databases, <strong>AWS EC2 + Nginx + PM2</strong> for deployment, and <strong>OpenAI/Gemini APIs</strong> for AI features. On the frontend I use HTML5, CSS3 (glassmorphism), and Vanilla JS.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -459,21 +862,56 @@
   <section id="contact" class="contact-section section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">06 — Contact</span>
+        <span class="section-tag">11 — Contact</span>
         <h2 class="section-title">Get In Touch</h2>
-        <p class="section-sub">Available for projects, collaborations, and bot commissions.</p>
+        <p class="section-sub">Available for projects, collaborations, and bot commissions. Let's build something great.</p>
       </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-wrap">
+        <form id="contactForm" class="contact-form glass-card" novalidate aria-label="Contact form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contactName">Your Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="contactName" name="name" placeholder="John Doe" required autocomplete="name" />
+              <span class="form-error" id="nameError"></span>
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email Address <span aria-hidden="true">*</span></label>
+              <input type="email" id="contactEmail" name="email" placeholder="john@example.com" required autocomplete="email" />
+              <span class="form-error" id="emailError"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contactSubject">Subject <span aria-hidden="true">*</span></label>
+            <input type="text" id="contactSubject" name="subject" placeholder="WhatsApp Bot Development" required />
+            <span class="form-error" id="subjectError"></span>
+          </div>
+          <div class="form-group">
+            <label for="contactMessage">Message <span aria-hidden="true">*</span></label>
+            <textarea id="contactMessage" name="message" rows="5" placeholder="Tell me about your project — what are you building? What's your timeline?" required></textarea>
+            <span class="form-error" id="messageError"></span>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit" id="submitBtn">
+            <span class="submit-text">Send Message</span>
+            <span class="submit-spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Cards -->
+      <div class="contact-divider"><span>or reach me directly</span></div>
       <div class="contact-grid">
         <div class="contact-card glass-card whatsapp-card">
-          <div class="contact-icon">💬</div>
+          <div class="contact-icon" aria-hidden="true">💬</div>
           <h3>WhatsApp</h3>
           <p>+2349061198658</p>
-          <a href="https://wa.me/2349061198658?text=Hi%20Olasubomi%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener" class="btn btn-primary contact-btn">
+          <a href="https://wa.me/2349061198658?text=Hi%20Olasubomi%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" class="btn btn-primary contact-btn">
             Message Me
           </a>
         </div>
         <div class="contact-card glass-card email-card">
-          <div class="contact-icon">📧</div>
+          <div class="contact-icon" aria-hidden="true">📧</div>
           <h3>Email</h3>
           <p>vegasola8@gmail.com</p>
           <a href="mailto:vegasola8@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20Olasubomi%2C%20I%20saw%20your%20portfolio..." class="btn btn-primary contact-btn">
@@ -481,15 +919,15 @@
           </a>
         </div>
         <div class="contact-card glass-card github-card">
-          <div class="contact-icon">🐙</div>
+          <div class="contact-icon" aria-hidden="true">🐙</div>
           <h3>GitHub</h3>
           <p>olasubomi-png</p>
-          <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener" class="btn btn-primary contact-btn">
+          <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener noreferrer" class="btn btn-primary contact-btn">
             View Profile
           </a>
         </div>
         <div class="contact-card glass-card cv-card">
-          <div class="contact-icon">📄</div>
+          <div class="contact-icon" aria-hidden="true">📄</div>
           <h3>Resume / CV</h3>
           <p>Download my latest CV</p>
           <a href="assets/cv/Olasubomi-CV.pdf" download class="btn btn-primary contact-btn">
@@ -501,16 +939,26 @@
   </section>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-inner">
+        <div class="footer-logo">
+          <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+            <polygon points="20,2 37,11 37,29 20,38 3,29 3,11" fill="none" stroke="var(--accent)" stroke-width="2"/>
+            <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" fill="var(--accent)" font-size="15" font-family="Orbitron" font-weight="900">O</text>
+          </svg>
+          <span>OLASUBOMI</span>
+        </div>
         <p class="footer-copy">
           © <span id="year"></span> <strong>Olasubomi</strong>. Crafted with ❤️ and ☕.
         </p>
         <div class="footer-links">
-          <a href="https://wa.me/2349061198658" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Projects</a>
+          <a href="https://wa.me/2349061198658" target="_blank" rel="noopener noreferrer">WhatsApp</a>
           <a href="mailto:vegasola8@gmail.com">Email</a>
-          <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
         <p class="footer-built">Built with Node.js passion &amp; deployed on AWS ☁️</p>
       </div>
