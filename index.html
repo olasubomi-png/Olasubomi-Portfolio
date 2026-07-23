@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Olasubomi — Full-Stack Developer, WhatsApp MD Bot Developer, AI Automation Builder & Cloud Developer. Explore my projects, skills and contact me." />
+  <meta name="keywords" content="Olasubomi, full-stack developer, WhatsApp bot, Node.js, JavaScript, AWS, AI automation, MongoDB, Express" />
+  <meta name="author" content="Olasubomi" />
+  <meta property="og:title" content="Olasubomi | Full-Stack Developer Portfolio" />
+  <meta property="og:description" content="Full-Stack Developer, WhatsApp MD Bot Developer & AI Automation Builder." />
+  <meta property="og:type" content="website" />
+  <title>Olasubomi | Developer Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body class="dark-mode">
+
+  <!-- ============ LOADING SCREEN ============ -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="logo-animation">
+        <svg class="logo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#00f5ff"/>
+              <stop offset="100%" style="stop-color:#bf00ff"/>
+            </linearGradient>
+          </defs>
+          <polygon class="logo-hex" points="60,5 110,32.5 110,87.5 60,115 10,87.5 10,32.5" fill="none" stroke="url(#logoGrad)" stroke-width="3"/>
+          <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" class="logo-letter" fill="url(#logoGrad)" font-size="42" font-family="Orbitron" font-weight="900">O</text>
+          <circle class="logo-orbit" cx="60" cy="60" r="48" fill="none" stroke="#00f5ff" stroke-width="1" stroke-dasharray="8 4" opacity="0.5"/>
+        </svg>
+      </div>
+      <h1 class="loader-name">OLASUBOMI</h1>
+      <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+      <p class="loader-tagline">Initializing portfolio<span class="dots">...</span></p>
+    </div>
+  </div>
+
+  <!-- ============ PARTICLE BACKGROUND ============ -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <svg viewBox="0 0 40 40" width="36" height="36">
+          <polygon points="20,2 37,11 37,29 20,38 3,29 3,11" fill="none" stroke="var(--accent)" stroke-width="2"/>
+          <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" fill="var(--accent)" font-size="15" font-family="Orbitron" font-weight="900">O</text>
+        </svg>
+        <span>OLASUBOMI</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#timeline" class="nav-link">Journey</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle theme" title="Toggle Light/Dark Mode">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <p class="hero-greeting">👋 Hello, I'm</p>
+      <h1 class="hero-name">OLASUBOMI</h1>
+      <div class="hero-typing-wrap">
+        <span class="hero-typing-prefix">I'm a </span>
+        <span id="typingText" class="hero-typing"></span>
+        <span class="cursor-blink">|</span>
+      </div>
+      <p class="hero-desc">
+        Building intelligent bots, automating the future, and deploying scalable cloud systems
+        — one line of code at a time.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      </div>
+      <div class="hero-badges">
+        <span class="badge">⚡ Node.js</span>
+        <span class="badge">🤖 AI</span>
+        <span class="badge">☁️ AWS</span>
+        <span class="badge">💬 WhatsApp Bots</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-avatar-ring">
+        <div class="hero-avatar">
+          <img src="images/profile.jpg" alt="Olasubomi" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="avatar-fallback">O</div>
+        </div>
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        <div class="orbit-dot dot-1"></div>
+        <div class="orbit-dot dot-2"></div>
+        <div class="orbit-dot dot-3"></div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section id="stats" class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card" data-target="400" data-suffix="+">
+          <span class="stat-number" data-count="400">0</span><span class="stat-plus">+</span>
+          <p class="stat-label">Commands Built</p>
+        </div>
+        <div class="stat-card" data-target="3" data-suffix="+">
+          <span class="stat-number" data-count="3">0</span><span class="stat-plus">+</span>
+          <p class="stat-label">Years Learning</p>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number stat-text">24/7</span>
+          <p class="stat-label">Bot Availability</p>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number stat-text">∞</span>
+          <p class="stat-label">Ideas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="about-section section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">01 — About</span>
+        <h2 class="section-title">Who I Am</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="about-intro">
+            I'm <strong>Olasubomi</strong> — a passionate full-stack developer with a deep love for
+            <span class="highlight">automation</span>, <span class="highlight">AI integration</span>, and
+            <span class="highlight">cloud infrastructure</span>.
+          </p>
+          <p>
+            My journey started with curiosity — wondering how apps work behind the scenes. That curiosity grew
+            into building production-ready WhatsApp bots with hundreds of features, deploying them on AWS EC2,
+            managing them with PM2 and Nginx, and integrating AI APIs to create truly intelligent experiences.
+          </p>
+          <p>
+            I specialize in the <strong>Baileys WhatsApp MD framework</strong>, Node.js backends, MongoDB databases,
+            and cloud deployments. I thrive where code meets real-world automation — turning complex problems into
+            elegant, working systems.
+          </p>
+          <div class="about-tags">
+            <span class="tag"># Problem Solver</span>
+            <span class="tag"># Bot Developer</span>
+            <span class="tag"># Cloud Builder</span>
+            <span class="tag"># AI Enthusiast</span>
+          </div>
+        </div>
+        <div class="about-cards">
+          <div class="about-card glass-card">
+            <div class="about-card-icon">🚀</div>
+            <h3>Automation First</h3>
+            <p>Everything repetitive should be automated. I build systems that work while you sleep.</p>
+          </div>
+          <div class="about-card glass-card">
+            <div class="about-card-icon">🤖</div>
+            <h3>AI-Powered</h3>
+            <p>Integrating AI APIs to build smart bots and automation workflows that actually think.</p>
+          </div>
+          <div class="about-card glass-card">
+            <div class="about-card-icon">☁️</div>
+            <h3>Cloud Native</h3>
+            <p>Deploying and scaling on AWS EC2 with Nginx, PM2, and production-grade Linux setups.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="skills-section section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">02 — Skills</span>
+        <h2 class="section-title">Technical Arsenal</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-icon">⚡</span>
+            <span class="skill-name">JavaScript</span>
+            <span class="skill-pct">92%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-icon">🟢</span>
+            <span class="skill-name">Node.js</span>
+            <span class="skill-pct">88%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-icon">💬</span>
+            <span class="skill-name">WhatsApp Bot Development</span>
+            <span class="skill-pct">95%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-icon">🍃</span>
+            <span class="skill-name">MongoDB</span>
+            <span class="skill-pct">80%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-icon">☁️</span>
+            <span class="skill-name">AWS EC2</span>
+            <span class="skill-pct">78%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-icon">🐧</span>
+            <span class="skill-name">Linux</span>
+            <span class="skill-pct">82%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-icon">🔗</span>
+            <span class="skill-name">REST APIs</span>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-icon">🧠</span>
+            <span class="skill-name">AI Integration</span>
+            <span class="skill-pct">83%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="83"></div></div>
+        </div>
+      </div>
+
+      <!-- Tech Pills -->
+      <div class="tech-pills">
+        <span class="tech-pill">Express.js</span>
+        <span class="tech-pill">Baileys</span>
+        <span class="tech-pill">Nginx</span>
+        <span class="tech-pill">PM2</span>
+        <span class="tech-pill">Git</span>
+        <span class="tech-pill">OpenAI API</span>
+        <span class="tech-pill">SSH</span>
+        <span class="tech-pill">Systemd</span>
+        <span class="tech-pill">JSON</span>
+        <span class="tech-pill">Async/Await</span>
+        <span class="tech-pill">Webhooks</span>
+        <span class="tech-pill">FFmpeg</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="projects-section section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">03 — Projects</span>
+        <h2 class="section-title">What I've Built</h2>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card glass-card featured">
+          <div class="project-badge">⭐ Featured</div>
+          <div class="project-glow"></div>
+          <div class="project-header">
+            <div class="project-icon">🤖</div>
+            <div class="project-meta">
+              <h3 class="project-title">OLASUBOMI-MD Bot</h3>
+              <span class="project-type">WhatsApp MD Bot</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            A powerful WhatsApp Multi Device bot built with Node.js and the Baileys framework.
+            Features automation, AI tools, group management, media downloader, and 400+ commands
+            — all running 24/7 on AWS EC2.
+          </p>
+          <div class="project-stack">
+            <span>Node.js</span><span>Baileys</span><span>MongoDB</span><span>AWS</span><span>PM2</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener" class="btn btn-sm">GitHub ↗</a>
+            <a href="https://wa.me/2349061198658" target="_blank" rel="noopener" class="btn btn-sm btn-ghost">Demo ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="project-glow"></div>
+          <div class="project-header">
+            <div class="project-icon">📊</div>
+            <div class="project-meta">
+              <h3 class="project-title">Bot Deployment Dashboard</h3>
+              <span class="project-type">Cloud Dashboard</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            A cloud dashboard for managing WhatsApp bot deployments — multiple accounts, authentication,
+            automated startup systems, and real-time monitoring of bots running on AWS infrastructure.
+          </p>
+          <div class="project-stack">
+            <span>Express.js</span><span>MongoDB</span><span>Nginx</span><span>AWS EC2</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener" class="btn btn-sm">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="project-glow"></div>
+          <div class="project-header">
+            <div class="project-icon">🧠</div>
+            <div class="project-meta">
+              <h3 class="project-title">AI Automation Systems</h3>
+              <span class="project-type">AI Tools</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            AI-powered tools and automation workflows integrating OpenAI, Gemini, and other AI APIs
+            into practical systems — from intelligent chatbots to content generation and data processing pipelines.
+          </p>
+          <div class="project-stack">
+            <span>OpenAI</span><span>Node.js</span><span>APIs</span><span>Webhooks</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener" class="btn btn-sm">GitHub ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TIMELINE ============ -->
+  <section id="timeline" class="timeline-section section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">04 — Journey</span>
+        <h2 class="section-title">My Developer Timeline</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <span class="timeline-year">2021</span>
+            <h3>Started Programming</h3>
+            <p>Discovered JavaScript and fell in love with code. Wrote my first scripts and never looked back.</p>
+          </div>
+        </div>
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <span class="timeline-year">2022</span>
+            <h3>Built WhatsApp Bots</h3>
+            <p>Dived deep into the Baileys framework. Built my first WhatsApp bot with 50+ commands that real users loved.</p>
+          </div>
+        </div>
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <span class="timeline-year">2023</span>
+            <h3>Deployed on AWS</h3>
+            <p>Set up Linux EC2 servers, configured Nginx as reverse proxy, managed processes with PM2 — going full cloud.</p>
+          </div>
+        </div>
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <span class="timeline-year">2024</span>
+            <h3>AI &amp; Automation Platforms</h3>
+            <p>Integrated AI APIs into bots and built automation workflows. OLASUBOMI-MD reached 400+ commands.</p>
+          </div>
+        </div>
+        <div class="timeline-item left pulse">
+          <div class="timeline-dot active"></div>
+          <div class="timeline-card glass-card active-card">
+            <span class="timeline-year">Now</span>
+            <h3>Building the Future 🚀</h3>
+            <p>Exploring new frontiers: advanced AI automation, scalable cloud architectures, and next-generation developer tools.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section id="gallery" class="gallery-section section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">05 — Gallery</span>
+        <h2 class="section-title">Screenshots</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item glass-card">
+          <div class="gallery-placeholder">
+            <div class="gallery-ph-icon">💬</div>
+            <p>Bot Screenshot</p>
+            <span class="gallery-hint">Replace with: images/bot-screenshot.jpg</span>
+          </div>
+          <img src="images/bot-screenshot.jpg" alt="WhatsApp Bot Screenshot" class="gallery-img" onerror="this.style.display='none'" />
+          <div class="gallery-overlay"><span>OLASUBOMI-MD Bot</span></div>
+        </div>
+        <div class="gallery-item glass-card">
+          <div class="gallery-placeholder">
+            <div class="gallery-ph-icon">☁️</div>
+            <p>AWS Server</p>
+            <span class="gallery-hint">Replace with: images/aws-server.jpg</span>
+          </div>
+          <img src="images/aws-server.jpg" alt="AWS Server Screenshot" class="gallery-img" onerror="this.style.display='none'" />
+          <div class="gallery-overlay"><span>AWS EC2 Dashboard</span></div>
+        </div>
+        <div class="gallery-item glass-card">
+          <div class="gallery-placeholder">
+            <div class="gallery-ph-icon">💻</div>
+            <p>Coding Setup</p>
+            <span class="gallery-hint">Replace with: images/setup.jpg</span>
+          </div>
+          <img src="images/setup.jpg" alt="Coding Setup" class="gallery-img" onerror="this.style.display='none'" />
+          <div class="gallery-overlay"><span>My Dev Setup</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="contact-section section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">06 — Contact</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-sub">Available for projects, collaborations, and bot commissions.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card glass-card whatsapp-card">
+          <div class="contact-icon">💬</div>
+          <h3>WhatsApp</h3>
+          <p>+2349061198658</p>
+          <a href="https://wa.me/2349061198658?text=Hi%20Olasubomi%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener" class="btn btn-primary contact-btn">
+            Message Me
+          </a>
+        </div>
+        <div class="contact-card glass-card email-card">
+          <div class="contact-icon">📧</div>
+          <h3>Email</h3>
+          <p>vegasola8@gmail.com</p>
+          <a href="mailto:vegasola8@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20Olasubomi%2C%20I%20saw%20your%20portfolio..." class="btn btn-primary contact-btn">
+            Send Email
+          </a>
+        </div>
+        <div class="contact-card glass-card github-card">
+          <div class="contact-icon">🐙</div>
+          <h3>GitHub</h3>
+          <p>olasubomi-png</p>
+          <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener" class="btn btn-primary contact-btn">
+            View Profile
+          </a>
+        </div>
+        <div class="contact-card glass-card cv-card">
+          <div class="contact-icon">📄</div>
+          <h3>Resume / CV</h3>
+          <p>Download my latest CV</p>
+          <a href="assets/cv/Olasubomi-CV.pdf" download class="btn btn-primary contact-btn">
+            Download CV
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">
+          © <span id="year"></span> <strong>Olasubomi</strong>. Crafted with ❤️ and ☕.
+        </p>
+        <div class="footer-links">
+          <a href="https://wa.me/2349061198658" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="mailto:vegasola8@gmail.com">Email</a>
+          <a href="https://github.com/olasubomi-png" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <p class="footer-built">Built with Node.js passion &amp; deployed on AWS ☁️</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
