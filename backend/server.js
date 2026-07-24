@@ -62,6 +62,9 @@ app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: false, limit: '10kb' }));
 
 /* ── Serve Static Frontend (root of repo) ── */
+// In production, Nginx serves all static files directly from /var/www/html.
+// This middleware is kept for local development (node backend/server.js),
+// where there is no Nginx in front of Express.
 app.use(express.static(path.join(__dirname, '..')));
 
 /* ── API Rate Limiter ── */
