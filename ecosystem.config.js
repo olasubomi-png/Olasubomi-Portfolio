@@ -36,9 +36,12 @@ module.exports = {
       max_memory_restart: '256M',
 
       /* ── Logging ── */
-      error_file:      '/var/log/pm2/portfolio-api-error.log',
-      out_file:        '/var/log/pm2/portfolio-api-out.log',
-      log_file:        '/var/log/pm2/portfolio-api-combined.log',
+      // ~/.pm2/logs/ is created automatically by PM2 when it first runs
+      // as the ubuntu user. /var/log/pm2/ requires root and causes
+      // "Could not create folder" errors — never use it here.
+      error_file:      '/home/ubuntu/.pm2/logs/portfolio-api-error.log',
+      out_file:        '/home/ubuntu/.pm2/logs/portfolio-api-out.log',
+      log_file:        '/home/ubuntu/.pm2/logs/portfolio-api-combined.log',
       log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
       merge_logs:      true,
 
