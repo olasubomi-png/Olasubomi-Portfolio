@@ -11,9 +11,10 @@ const helmet   = require('helmet');
 const cors     = require('cors');
 const path     = require('path');
 
-const config          = require('./config');
-const errorHandler    = require('./middleware/errorHandler');
+const config             = require('./config');
+const errorHandler       = require('./middleware/errorHandler');
 const { generalLimiter } = require('./middleware/rateLimiter');
+const logger             = require('./middleware/logger');
 
 const contactRoutes  = require('./routes/contact');
 const projectsRoutes = require('./routes/projects');
@@ -53,6 +54,9 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+/* ── Request Logging ── */
+app.use(logger);
+
 /* ── Body Parsing ── */
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: false, limit: '10kb' }));
@@ -76,6 +80,14 @@ app.get('/api/health', (req, res) => {
     status: 'ok',
     env:    config.nodeEnv,
     uptime: process.uptime().toFixed(2) + 's',
+  });
+});
+
+/* ── 404 for undefined /api/* routes (must come after all API routes) ── */
+app.use('/api', (req, res) => {
+  res.status(404).json({
+    success: false,
+    message: `API endpoint not found: ${req.method} /api${req.path}`,
   });
 });
 

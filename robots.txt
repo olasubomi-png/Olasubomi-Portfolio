@@ -1,0 +1,8 @@
+# robots.txt — Olasubomi Portfolio
+# Update the Sitemap URL once your domain is live.
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://yourdomain.com/sitemap.xml
