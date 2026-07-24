@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Portfolio Platform</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/dashboard.css" />
+</head>
+<body>
+
+<div class="toast-container"></div>
+<div class="sidebar-overlay"></div>
+
+<div class="dashboard-layout">
+
+  <!-- ══ SIDEBAR ══════════════════════════════════════════════════ -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a href="/" class="sidebar-logo">⚡ PORTFOLIO PLATFORM</a>
+      <div class="sidebar-user">
+        <img id="sidebar-avatar" class="sidebar-avatar" src="" alt="Avatar" />
+        <div class="sidebar-user-info">
+          <div id="sidebar-username" class="sidebar-user-name">Loading…</div>
+          <div id="sidebar-role"     class="sidebar-user-role">user</div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+
+      <div class="nav-section">
+        <div class="nav-section-label">Main</div>
+        <a class="nav-item" data-panel="overview">
+          <span class="nav-icon">🏠</span> Overview
+        </a>
+        <a class="nav-item" data-panel="portfolio">
+          <span class="nav-icon">🌐</span> Portfolio Builder
+          <span class="nav-soon">Phase 2</span>
+        </a>
+        <a class="nav-item" data-panel="products">
+          <span class="nav-icon">🛒</span> Digital Products
+          <span class="nav-soon">Phase 4</span>
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-label">Insights</div>
+        <a class="nav-item" data-panel="analytics">
+          <span class="nav-icon">📊</span> Analytics
+          <span class="nav-soon">Phase 8</span>
+        </a>
+        <a class="nav-item" data-panel="messages">
+          <span class="nav-icon">💬</span> Messages
+          <span class="nav-soon">Phase 10</span>
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-label">Account</div>
+        <a class="nav-item" data-panel="settings">
+          <span class="nav-icon">⚙️</span> Settings & Profile
+        </a>
+        <a class="nav-item" data-panel="security">
+          <span class="nav-icon">🔒</span> Security
+        </a>
+      </div>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="#" class="sidebar-publish-btn" onclick="return false;" title="Portfolio Builder coming in Phase 2">
+        🌐 Publish Portfolio
+      </a>
+      <button id="logout-btn" class="sidebar-logout">
+        🚪 <span>Sign Out</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ══ MAIN CONTENT ═════════════════════════════════════════════ -->
+  <main class="main-content">
+
+    <!-- Top header -->
+    <header class="dash-header">
+      <button id="hamburger-btn" class="hamburger" aria-label="Toggle sidebar">☰</button>
+      <div class="dash-header-left">
+        <div class="dash-page-title">Overview</div>
+        <div class="dash-breadcrumb">Dashboard / Overview</div>
+      </div>
+      <div class="dash-header-right">
+        <button class="header-icon-btn" title="Notifications (coming soon)">
+          🔔
+          <span class="notif-dot"></span>
+        </button>
+        <button class="header-icon-btn" title="Visit your portfolio (coming soon)">
+          🔗
+        </button>
+      </div>
+    </header>
+
+    <div class="dash-body">
+
+      <!-- ═══ OVERVIEW PANEL ════════════════════════════════════════ -->
+      <section id="panel-overview" class="dash-panel">
+
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">👁️</div>
+            <div class="stat-info">
+              <div id="ov-views" class="stat-value">—</div>
+              <div class="stat-label">Portfolio Views</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon blue">🛍️</div>
+            <div class="stat-info">
+              <div id="ov-sales" class="stat-value">—</div>
+              <div class="stat-label">Total Sales</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon green">📦</div>
+            <div class="stat-info">
+              <div id="ov-products" class="stat-value">—</div>
+              <div class="stat-label">Products Listed</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon amber">💰</div>
+            <div class="stat-info">
+              <div class="stat-value">₦0</div>
+              <div class="stat-label">Total Earnings</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile overview card -->
+        <div class="section-heading"><span>👤</span> Your Profile</div>
+        <div class="dash-card">
+          <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+            <img id="ov-avatar" class="avatar-preview" style="width:72px;height:72px" src="" alt="Avatar" />
+            <div style="flex:1;min-width:200px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px">
+                <h2 id="ov-name" style="font-size:20px;font-weight:700"></h2>
+                <span id="ov-verified-badge" class="badge"></span>
+                <span id="ov-publish-badge"  class="badge"></span>
+              </div>
+              <div id="ov-username" style="font-family:var(--font-mono);font-size:13px;color:var(--text-muted);margin-bottom:4px"></div>
+              <div style="display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--text-muted);margin-top:6px">
+                <span>✉️ <span id="ov-email"></span></span>
+                <span>🎭 Role: <span id="ov-role" style="text-transform:capitalize"></span></span>
+                <span>📅 Joined: <span id="ov-joined"></span></span>
+                <span>⏱ Last login: <span id="ov-last-login"></span></span>
+              </div>
+            </div>
+            <button class="btn-ghost btn-sm" onclick="showPanel('settings')">Edit Profile →</button>
+          </div>
+        </div>
+
+        <!-- Quick actions -->
+        <div class="section-heading" style="margin-top:8px"><span>⚡</span> Quick Actions</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+
+          <div class="dash-card" style="cursor:pointer;transition:border-color .2s" onclick="showPanel('settings')">
+            <div style="font-size:28px;margin-bottom:8px">👤</div>
+            <div style="font-weight:600;margin-bottom:4px">Edit Profile</div>
+            <div style="font-size:12px;color:var(--text-muted)">Update your bio, skills, and social links</div>
+          </div>
+
+          <div class="dash-card" style="cursor:pointer;opacity:.7" title="Coming in Phase 2">
+            <div style="font-size:28px;margin-bottom:8px">🌐</div>
+            <div style="font-weight:600;margin-bottom:4px">Build Portfolio</div>
+            <div style="font-size:12px;color:var(--text-muted)">Coming in Phase 2 — Portfolio Builder</div>
+          </div>
+
+          <div class="dash-card" style="cursor:pointer;opacity:.7" title="Coming in Phase 4">
+            <div style="font-size:28px;margin-bottom:8px">🛒</div>
+            <div style="font-weight:600;margin-bottom:4px">Sell Products</div>
+            <div style="font-size:12px;color:var(--text-muted)">Coming in Phase 4 — Digital Marketplace</div>
+          </div>
+
+          <div class="dash-card" style="cursor:pointer;opacity:.7" title="Coming in Phase 8">
+            <div style="font-size:28px;margin-bottom:8px">📊</div>
+            <div style="font-weight:600;margin-bottom:4px">View Analytics</div>
+            <div style="font-size:12px;color:var(--text-muted)">Coming in Phase 8 — Analytics Dashboard</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ═══ PORTFOLIO PANEL ════════════════════════════════════════ -->
+      <section id="panel-portfolio" class="dash-panel">
+        <div class="coming-soon-panel">
+          <div class="coming-soon-icon">🌐</div>
+          <div class="coming-soon-title">Portfolio Builder — Phase 2</div>
+          <p class="coming-soon-desc">
+            Build your professional portfolio with multiple templates, live preview,
+            autosave, and one-click publish. Coming soon.
+          </p>
+        </div>
+      </section>
+
+      <!-- ═══ PRODUCTS PANEL ════════════════════════════════════════ -->
+      <section id="panel-products" class="dash-panel">
+        <div class="coming-soon-panel">
+          <div class="coming-soon-icon">🛒</div>
+          <div class="coming-soon-title">Digital Products Marketplace — Phase 4</div>
+          <p class="coming-soon-desc">
+            Sell templates, CV designs, ebooks, UI kits, source code, and more.
+            Integrated with Paystack and Flutterwave. Coming soon.
+          </p>
+        </div>
+      </section>
+
+      <!-- ═══ ANALYTICS PANEL ═══════════════════════════════════════ -->
+      <section id="panel-analytics" class="dash-panel">
+        <div class="coming-soon-panel">
+          <div class="coming-soon-icon">📊</div>
+          <div class="coming-soon-title">Analytics — Phase 8</div>
+          <p class="coming-soon-desc">
+            Track portfolio views, unique visitors, downloads, sales, revenue,
+            traffic sources, and monthly growth with beautiful charts.
+          </p>
+        </div>
+      </section>
+
+      <!-- ═══ MESSAGES PANEL ════════════════════════════════════════ -->
+      <section id="panel-messages" class="dash-panel">
+        <div class="coming-soon-panel">
+          <div class="coming-soon-icon">💬</div>
+          <div class="coming-soon-title">Messaging — Phase 10</div>
+          <p class="coming-soon-desc">
+            Internal messaging between employers and creators. Read receipts,
+            attachments, and real-time notifications. Coming soon.
+          </p>
+        </div>
+      </section>
+
+      <!-- ═══ SETTINGS PANEL ════════════════════════════════════════ -->
+      <section id="panel-settings" class="dash-panel">
+
+        <form id="profile-form">
+
+          <!-- Avatar -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div class="dash-card-title">👤 Profile Picture</div>
+            </div>
+            <div class="avatar-section">
+              <img id="pf-avatar" class="avatar-preview" src="" alt="Your avatar" />
+              <div class="avatar-info">
+                <strong>Upload a profile photo</strong>
+                <p>JPG, PNG, GIF or WebP. Max 5 MB.</p>
+                <p style="margin-top:6px">Your avatar is shown on your public portfolio and marketplace listing.</p>
+                <button type="button" id="avatar-upload-btn" class="btn-upload" style="margin-top:10px">
+                  📷 Change Avatar
+                </button>
+                <input type="file" id="avatar-file-input" accept="image/*" style="display:none" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Basic info -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div class="dash-card-title">📝 Basic Information</div>
+            </div>
+
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="pf-first-name">First Name</label>
+                <input type="text" id="pf-first-name" placeholder="John" maxlength="50" />
+              </div>
+              <div class="field-group">
+                <label for="pf-last-name">Last Name</label>
+                <input type="text" id="pf-last-name" placeholder="Doe" maxlength="50" />
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="pf-headline">Professional Headline</label>
+              <input type="text" id="pf-headline" placeholder="e.g. Full-Stack Developer & WhatsApp Bot Specialist" maxlength="120" />
+            </div>
+
+            <div class="field-group">
+              <label for="pf-bio">Bio</label>
+              <textarea id="pf-bio" rows="4" placeholder="Tell employers and clients who you are…" maxlength="600"></textarea>
+            </div>
+
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="pf-location">Location</label>
+                <input type="text" id="pf-location" placeholder="Lagos, Nigeria" maxlength="100" />
+              </div>
+              <div class="field-group">
+                <label for="pf-phone">Phone / WhatsApp</label>
+                <input type="tel" id="pf-phone" placeholder="+234 900 000 0000" maxlength="20" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div class="dash-card-title">🛠️ Skills</div>
+              <span style="font-size:12px;color:var(--text-muted)">Max 20</span>
+            </div>
+            <div id="skills-tags" class="skills-container"></div>
+            <div class="skills-input-row" style="margin-top:10px">
+              <input type="text" id="skill-input" placeholder="Add a skill (e.g. JavaScript)" maxlength="40"
+                     style="flex:1;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-family:var(--font);font-size:13px;padding:9px 12px;outline:none" />
+              <button type="button" id="add-skill-btn" class="btn-ghost btn-sm">+ Add</button>
+            </div>
+          </div>
+
+          <!-- Social links -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div class="dash-card-title">🔗 Social Links</div>
+            </div>
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="pf-github">🐙 GitHub</label>
+                <input type="text" id="pf-github" placeholder="github.com/username" />
+              </div>
+              <div class="field-group">
+                <label for="pf-linkedin">💼 LinkedIn</label>
+                <input type="text" id="pf-linkedin" placeholder="linkedin.com/in/username" />
+              </div>
+              <div class="field-group">
+                <label for="pf-twitter">🐦 Twitter / X</label>
+                <input type="text" id="pf-twitter" placeholder="@handle" />
+              </div>
+              <div class="field-group">
+                <label for="pf-website">🌐 Personal Website</label>
+                <input type="text" id="pf-website" placeholder="https://yoursite.com" />
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <button type="submit" id="save-profile-btn" class="btn-primary">💾 Save Profile</button>
+            <button type="button" class="btn-ghost" onclick="location.reload()">↩ Discard Changes</button>
+          </div>
+
+        </form>
+
+      </section>
+
+      <!-- ═══ SECURITY PANEL ════════════════════════════════════════ -->
+      <section id="panel-security" class="dash-panel">
+
+        <div class="dash-card" style="max-width:560px">
+          <div class="dash-card-header">
+            <div class="dash-card-title">🔒 Change Password</div>
+          </div>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:20px">
+            After changing your password, all other devices will be logged out.
+          </p>
+
+          <form id="security-form" novalidate>
+            <div class="field-group">
+              <label for="sec-current-pw">Current Password</label>
+              <input type="password" id="sec-current-pw" placeholder="Your current password" autocomplete="current-password" />
+            </div>
+            <div class="field-group">
+              <label for="sec-new-pw">New Password</label>
+              <input type="password" id="sec-new-pw" placeholder="Min 8 characters" autocomplete="new-password" />
+            </div>
+            <div class="field-group">
+              <label for="sec-confirm-pw">Confirm New Password</label>
+              <input type="password" id="sec-confirm-pw" placeholder="Repeat new password" autocomplete="new-password" />
+            </div>
+
+            <div class="btn-row">
+              <button type="submit" id="change-pw-btn" class="btn-primary">🔒 Change Password</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="dash-card" style="max-width:560px">
+          <div class="dash-card-header">
+            <div class="dash-card-title">📱 Active Sessions</div>
+          </div>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px">
+            Changing your password logs out all other sessions automatically.
+            More granular session management is coming in a future update.
+          </p>
+          <button class="btn-danger btn-sm" onclick="logout()">🚪 Log Out All Devices</button>
+        </div>
+
+      </section>
+
+    </div><!-- /dash-body -->
+  </main>
+
+</div><!-- /dashboard-layout -->
+
+<script src="/assets/js/dashboard.js"></script>
+</body>
+</html>

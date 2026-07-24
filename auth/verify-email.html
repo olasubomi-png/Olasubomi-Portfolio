@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify Email — Portfolio Platform</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/auth.css" />
+</head>
+<body>
+
+  <nav class="brand-bar">
+    <a href="/" class="brand-logo">⚡ PORTFOLIO PLATFORM</a>
+    <a href="/auth/login.html" class="brand-back">← Back to login</a>
+  </nav>
+
+  <div class="toast-container"></div>
+
+  <div id="verifyEmailPage" class="auth-wrapper">
+    <div class="auth-card">
+
+      <!-- Loading (default, hidden by JS) -->
+      <div id="verifyLoading" class="status-card" style="display:none">
+        <span class="status-icon">⏳</span>
+        <h2>Verifying…</h2>
+        <p>Please wait while we verify your email address.</p>
+      </div>
+
+      <!-- Success -->
+      <div id="verifySuccess" style="display:none" class="status-card">
+        <span class="status-icon">🎉</span>
+        <h2>Email verified!</h2>
+        <p>Your account is now active. Welcome to Portfolio Platform!</p>
+        <a href="/auth/login.html" class="btn-auth" style="display:inline-flex;text-decoration:none;margin-top:16px">
+          Sign In Now
+        </a>
+      </div>
+
+      <!-- Invalid / expired -->
+      <div id="verifyInvalid" style="display:none" class="status-card">
+        <span class="status-icon">❌</span>
+        <h2>Link invalid or expired</h2>
+        <p>This verification link has expired or already been used. Enter your email below to get a new one.</p>
+
+        <form id="resendForm" novalidate style="text-align:left;margin-top:20px">
+          <div class="form-group">
+            <label for="email">Your Email Address</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉️</span>
+              <input type="email" id="email" name="email" autocomplete="email"
+                     placeholder="you@example.com" required />
+            </div>
+          </div>
+          <button type="submit" class="btn-auth">
+            <span class="btn-text">Resend Verification Link</span>
+            <span class="btn-spinner"><span class="spinner"></span></span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Default state (no status param) -->
+      <div id="verifyDefault" class="status-card">
+        <span class="status-icon">📧</span>
+        <h2>Check your email</h2>
+        <p>We sent a verification link to your email address. Click the link to activate your account.</p>
+        <p class="text-muted">Didn't receive it? Check your spam or resend below.</p>
+
+        <form id="resendForm" novalidate style="text-align:left;margin-top:20px">
+          <div class="form-group">
+            <label for="emailResend">Your Email Address</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉️</span>
+              <input type="email" id="emailResend" name="email" autocomplete="email"
+                     placeholder="you@example.com" required />
+            </div>
+          </div>
+          <button type="submit" class="btn-auth">
+            <span class="btn-text">Resend Verification Link</span>
+            <span class="btn-spinner"><span class="spinner"></span></span>
+          </button>
+        </form>
+      </div>
+
+      <div class="auth-footer" style="margin-top:20px">
+        <a href="/auth/login.html">← Back to login</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Hide default state if a status param is present
+    const status = new URLSearchParams(window.location.search).get('status');
+    const def = document.getElementById('verifyDefault');
+    if (status && def) def.style.display = 'none';
+  </script>
+  <script src="/assets/js/auth.js"></script>
+</body>
+</html>

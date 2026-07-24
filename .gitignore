@@ -1,41 +1,45 @@
-# ── Dependencies ──────────────────────────────────────
+# ── Dependencies ──────────────────────────────────────────────
 node_modules/
 backend/node_modules/
 
-# ── Environment ───────────────────────────────────────
+# ── Environment ───────────────────────────────────────────────
 .env
 .env.local
 .env.production
 .env.staging
 
-# ── Logs ──────────────────────────────────────────────
+# ── Uploads (user-generated content — not committed) ──────────
+assets/uploads/
+
+# ── Logs ──────────────────────────────────────────────────────
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 logs/*.log
 
-# ── OS ────────────────────────────────────────────────
+# ── OS ────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
 ehthumbs.db
 
-# ── Editor / IDE ──────────────────────────────────────
+# ── Editor / IDE ──────────────────────────────────────────────
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# ── Build & coverage ──────────────────────────────────
+# ── Build & coverage ──────────────────────────────────────────
 dist/
 build/
 coverage/
 .nyc_output/
 
-# ── PM2 ───────────────────────────────────────────────
+# ── PM2 ───────────────────────────────────────────────────────
 .pm2/
 ecosystem.config.js.bak
 
-# ── Misc ──────────────────────────────────────────────
+# ── Misc ──────────────────────────────────────────────────────
 *.tgz
 .cache/
+package-lock.json
