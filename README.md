@@ -202,7 +202,7 @@ nano .env   # set NODE_ENV=production and fill in your values
 ### 7. Install dependencies and start PM2
 
 ```bash
-cd backend && npm install --production && cd ..
+cd backend && npm install --omit=dev && cd ..
 
 pm2 start ecosystem.config.js --env production
 pm2 save
@@ -240,7 +240,7 @@ sudo nginx -t && sudo systemctl reload nginx
 ```bash
 cd /var/www/html
 git pull origin main
-cd backend && npm install --production && cd ..
+cd backend && npm install --omit=dev && cd ..
 pm2 restart portfolio-api
 sudo cp nginx.conf /etc/nginx/sites-available/default
 sudo nginx -t
@@ -329,7 +329,7 @@ jobs:
           script: |
             cd /var/www/html
             git pull origin main
-            cd backend && npm install --production && cd ..
+            cd backend && npm install --omit=dev && cd ..
             pm2 restart portfolio-api
 ```
 
