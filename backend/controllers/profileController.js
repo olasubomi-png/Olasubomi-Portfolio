@@ -2,39 +2,31 @@
 
 /**
  * GET /api/profile
- * Returns public profile information.
+ * Returns profile / about data.
  */
 async function getProfile(req, res, next) {
   try {
     const profile = {
-      name: 'Olasubomi',
-      title: 'Full-Stack Developer & WhatsApp Bot Specialist',
-      tagline: 'Building intelligent bots, automating the future, and deploying scalable cloud systems.',
-      location: 'Nigeria',
-      available: true,
+      name: 'Ola Subomi',
+      role: 'Full-Stack Developer & Software Engineer',
+      tagline: 'I design and build production-ready web applications, SaaS platforms, AI-powered products, and digital systems.',
+      bio: "I'm Ola Subomi, a full-stack developer and software engineer focused on building useful software from the ground up. I work across UI, frontend architecture, APIs, databases, authentication, payments, AI, integrations, deployment and infrastructure.",
       email: 'vegasola8@gmail.com',
-      whatsapp: '+2349061198658',
       github: 'https://github.com/olasubomi-png',
-      linkedin: null, // Coming soon
-      stats: {
-        commandsBuilt: 400,
-        yearsLearning: 3,
-        botUptime: '24/7',
-      },
       skills: [
-        { name: 'JavaScript', level: 92 },
-        { name: 'Node.js', level: 88 },
-        { name: 'WhatsApp Bot Development', level: 95 },
-        { name: 'MongoDB', level: 80 },
-        { name: 'AWS EC2', level: 78 },
-        { name: 'Linux', level: 82 },
-        { name: 'REST APIs', level: 85 },
-        { name: 'AI Integration', level: 83 },
+        { name: 'Next.js / React', level: null },
+        { name: 'TypeScript', level: null },
+        { name: 'Node.js', level: null },
+        { name: 'PostgreSQL / Drizzle', level: null },
+        { name: 'Express / REST APIs', level: null },
+        { name: 'AWS / Vercel / Nginx / PM2', level: null },
+        { name: 'AI integrations', level: null },
+        { name: 'Paystack / payments', level: null },
       ],
       techPills: [
-        'Express.js', 'Baileys', 'Nginx', 'PM2', 'Git',
-        'OpenAI API', 'SSH', 'Systemd', 'JSON', 'Async/Await',
-        'Webhooks', 'FFmpeg',
+        'Next.js', 'React', 'TypeScript', 'Node.js', 'Express',
+        'PostgreSQL', 'Drizzle ORM', 'Vercel', 'AWS', 'Nginx', 'PM2',
+        'Paystack', 'Baileys', 'AI APIs', 'tRPC',
       ],
     };
 
