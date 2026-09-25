@@ -3,56 +3,84 @@
 /**
  * GET /api/projects
  * Returns the portfolio projects list.
- * Ready to swap the static array for a MongoDB query.
  */
 async function getProjects(req, res, next) {
   try {
     const projects = [
       {
         id: 1,
-        title: 'OLASUBOMI-MD Bot',
-        type: 'WhatsApp MD Bot',
-        icon: '🤖',
+        title: 'CONVORA',
+        type: 'Customer communication & agent platform',
         description:
-          'A powerful WhatsApp Multi Device bot built with Node.js and the Baileys framework. Features automation, AI tools, group management, media downloader, and 400+ commands — all running 24/7 on AWS EC2.',
-        stack: ['Node.js', 'Baileys', 'MongoDB', 'AWS', 'PM2'],
-        github: 'https://github.com/olasubomi-png',
-        demo: 'https://wa.me/2349061198658',
+          'Multi-tenant communication platform for organizations and agents — identity, tenancy, memberships, organization isolation, and foundations for customer conversations, web chat, WhatsApp and Meta integrations with AI assistance.',
+        stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Drizzle', 'AI', 'Meta APIs'],
+        github: 'https://github.com/olasubomi-png/CONVORA',
+        demo: null,
         featured: true,
       },
       {
         id: 2,
-        title: 'Bot Deployment Dashboard',
-        type: 'Cloud Dashboard',
-        icon: '📊',
+        title: 'SUBBY-STORE',
+        type: 'Multi-tenant e-commerce platform',
         description:
-          'A cloud dashboard for managing WhatsApp bot deployments — multiple accounts, authentication, automated startup systems, and real-time monitoring of bots running on AWS infrastructure.',
-        stack: ['Express.js', 'MongoDB', 'Nginx', 'AWS EC2'],
-        github: 'https://github.com/olasubomi-png',
+          'Mobile-first ecommerce for small businesses — storefronts, products, inventory, orders, Paystack payments, seller wallets, image uploads and dashboard.',
+        stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Drizzle', 'Paystack', 'Vercel Blob'],
+        github: 'https://github.com/olasubomi-png/SUBBY-STORE',
         demo: null,
         featured: false,
       },
       {
         id: 3,
-        title: 'AI Automation Platform',
-        type: 'AI Tools',
-        icon: '🧠',
+        title: 'SUBBY-VIRTUAL',
+        type: 'Virtual numbers & temporary communication',
         description:
-          'AI-powered tools and automation workflows integrating OpenAI, Gemini, and other AI APIs into practical systems — from intelligent chatbots to content generation and data processing pipelines.',
-        stack: ['OpenAI', 'Node.js', 'APIs', 'Webhooks'],
-        github: 'https://github.com/olasubomi-png',
+          'Communications testing workspace for mock SMS activations, temporary mail inboxes, wallet ledger and user dashboard — built for compliant provider integration.',
+        stack: ['React', 'Vite', 'Express', 'tRPC', 'Drizzle', 'PostgreSQL'],
+        github: 'https://github.com/olasubomi-png/SUBBY-VIRTUAL',
         demo: null,
         featured: false,
       },
       {
         id: 4,
-        title: 'Developer Portfolio',
-        type: 'Full-Stack Portfolio',
-        icon: '🌐',
+        title: 'SUBBY-AI',
+        type: 'AI-powered developer platform',
         description:
-          'This very site — a production-ready portfolio with a Node.js/Express REST API backend, Helmet security, rate limiting, CORS, and a glassmorphism frontend with particle animations.',
-        stack: ['HTML5', 'CSS3', 'JavaScript', 'Node.js', 'Express'],
-        github: 'https://github.com/olasubomi-png',
+          'Full-stack AI platform with React client, Express/tRPC server, Drizzle ORM, and integrations for intelligent workflows and developer tooling.',
+        stack: ['React', 'TypeScript', 'tRPC', 'Drizzle', 'Express', 'AI APIs'],
+        github: 'https://github.com/olasubomi-png/SUBBY-AI',
+        demo: null,
+        featured: false,
+      },
+      {
+        id: 5,
+        title: 'SUBFLIX',
+        type: 'Streaming platform',
+        description:
+          'Modern streaming platform with session auth, database-backed movie and series catalog, genres, search, and admin import — built on Next.js and PostgreSQL.',
+        stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Drizzle', 'Tailwind'],
+        github: 'https://github.com/olasubomi-png/SUBFLIX',
+        demo: null,
+        featured: false,
+      },
+      {
+        id: 6,
+        title: 'MOTOR',
+        type: 'Automotive marketplace',
+        description:
+          'Premium automotive dealership platform — vehicle listings, inventory search and filter, detail galleries, availability states and responsive catalog.',
+        stack: ['Next.js', 'TypeScript', 'Tailwind'],
+        github: 'https://github.com/olasubomi-png/MOTO',
+        demo: null,
+        featured: false,
+      },
+      {
+        id: 7,
+        title: 'VEGAS-MD',
+        type: 'WhatsApp automation platform',
+        description:
+          'Node.js WhatsApp multi-device automation with Baileys — command architecture, AI integration, media tools, group management and production deployment with PM2.',
+        stack: ['Node.js', 'Baileys', 'JavaScript', 'PM2', 'AI APIs'],
+        github: 'https://github.com/olasubomi-png/Vegas-MD',
         demo: null,
         featured: false,
       },
